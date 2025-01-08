@@ -20,6 +20,7 @@ def check_text(text, person):
 def UI(chat):
     if "Violation" not in st.session_state:
         st.session_state.Violation = ''
+        st.session_state.chat = []
         
     st.set_page_config(page_title="کاربرد هش ها")
     st.write("<div style='text-align: center'> <h1>کاربرد هش<h1> </div>", unsafe_allow_html=True)
@@ -30,7 +31,7 @@ def UI(chat):
         if st.button(label="ارسال", key="p1"):
             security = check_text(p1_text, "علی")
             if security:
-                chat = chat + "علی:" + p1_text 
+                st.session_state.chat.append("علی:" + p1_text) 
         if st.session_state.Violation == 'علی':
             st.write(F"""تخلف نوشتاری از سمت {st.session_state.Violation}""")
                 
@@ -39,14 +40,15 @@ def UI(chat):
         if st.button(label="ارسال", key="p2"):
             security = check_text(p2_text, "امیر محمد")
             if security:
-                chat = chat + "امیر محمد:" + p2_text 
+                st.session_state.chat.append("امیر محمد:" + p2_text) 
         if st.session_state.Violation == 'امیر محمد':
             st.write(F"""تخلف نوشتاری از سمت {st.session_state.Violation}""")
     
     with col2:
-        text = ""
-        text += chat
-        st.write(text)
+        st.write(st.session_state.chat)
+        # text = ""
+        # text += chat
+        # st.write(text)
     
     
     
