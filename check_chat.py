@@ -2,7 +2,7 @@ import streamlit as st
 import hashlib
 
 def check_text(text, person):
-    targets = ['8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4']
+    targets = ['79032b8a85663acddd601fd25371b7cb91f3ee6fbe68215f3cf6d4736bcbeea9']
     text = text.split()
     text_hash = list()
     for word in text:
